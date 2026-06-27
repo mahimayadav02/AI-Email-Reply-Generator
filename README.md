@@ -1,12 +1,10 @@
 # AI Email Reply Generator
 
-## About the Project
+An AI-powered email reply assistant built using **Spring Boot**, **React**, and the **Google Gemini API**.
 
-This project is an AI-powered email reply generator built using **Spring Boot**, **React**, and the **Google Gemini API**.
+This project includes a Chrome Extension that adds an **AI Reply** button directly inside Gmail. When clicked, it sends the email content to a Spring Boot backend, generates a context-aware reply using Google's Gemini API, and automatically inserts the response into the Gmail compose box.
 
-The idea behind the project is simple: while replying to an email in Gmail, users can click an **AI Reply** button added by a Chrome Extension. The email content is sent to a Spring Boot backend, which communicates with the Gemini API to generate a context-aware reply. The generated response is then inserted directly into the Gmail compose window.
-
-Apart from the Chrome Extension, the project also includes a React frontend that can be used independently to test and generate replies for texts other than email.
+A React frontend is also included to independently test and generate AI-powered email replies.
 
 ---
 
@@ -14,10 +12,10 @@ Apart from the Chrome Extension, the project also includes a React frontend that
 
 * Generate AI-powered email replies
 * Chrome Extension integrated with Gmail
-* Multiple reply tones (Professional, Casual and Friendly)
+* Multiple reply tones (Professional, Casual, Friendly, etc.)
+* React frontend for testing replies
 * Spring Boot REST API backend
-* React frontend built with Material UI
-* Copy generated replies to clipboard
+* Google Gemini API integration
 * Secure API key management using environment variables
 
 ---
@@ -28,9 +26,9 @@ Apart from the Chrome Extension, the project also includes a React frontend that
 
 * Java
 * Spring Boot
+* Maven
 * Spring Web
 * WebClient
-* Maven
 
 ### Frontend
 
@@ -42,7 +40,7 @@ Apart from the Chrome Extension, the project also includes a React frontend that
 ### Chrome Extension
 
 * JavaScript
-* Manifest V3
+* Chrome Extension Manifest V3
 * MutationObserver
 * DOM Manipulation
 
@@ -54,25 +52,51 @@ Apart from the Chrome Extension, the project also includes a React frontend that
 
 ## Project Structure
 
-```
+```text
 AI-Email-Reply-Generator
 │
-├── email-writer-sb        # Spring Boot Backend
-├── email-writer-react     # React Frontend
-└── email-writer-ext       # Chrome Extension
+├── email-writer-sb
+├── email-writer-react
+├── email-writer-ext
+└── screenshots
 ```
 
 ---
 
-## How it Works
+## Screenshots
 
-1. User opens an email in Gmail.
-2. Clicking **Reply** displays an **AI Reply** button added by the Chrome Extension.
-3. The extension extracts the email content.
-4. A request is sent to the Spring Boot backend.
-5. The backend forwards the prompt to the Gemini API.
-6. Gemini generates a reply.
-7. The generated response is automatically inserted into the Gmail compose box.
+### React Frontend
+
+![React Frontend](screenshots/frontend.png)
+
+---
+
+### Generated Reply
+
+![Generated Reply](screenshots/generated-reply.png)
+
+---
+
+### Gmail Extension
+
+![Email Text](screenshots/email-text.png)
+
+---
+
+### AI Reply in Gmail
+
+![Generated Email Reply](screenshots/generated-email-reply.png)
+
+---
+
+## How It Works
+
+1. Open Gmail and click **Reply**.
+2. The Chrome Extension injects an **AI Reply** button.
+3. The email content is sent to the Spring Boot backend.
+4. The backend sends the request to the Gemini API.
+5. Gemini generates a contextual email reply.
+6. The generated response is automatically inserted into the Gmail compose window.
 
 ---
 
@@ -85,13 +109,11 @@ cd email-writer-sb
 ./mvnw spring-boot:run
 ```
 
-Runs on:
+Backend runs on:
 
-```
+```text
 http://localhost:8085
 ```
-
----
 
 ### Frontend
 
@@ -101,28 +123,26 @@ npm install
 npm run dev
 ```
 
-Runs on:
+Frontend runs on:
 
-```
+```text
 http://localhost:5173
 ```
 
----
-
 ### Chrome Extension
 
-* Open `chrome://extensions`
-* Enable **Developer Mode**
-* Click **Load unpacked**
-* Select the `email-writer-ext` folder
+1. Open `chrome://extensions`
+2. Enable **Developer Mode**
+3. Click **Load unpacked**
+4. Select the `email-writer-ext` folder
 
 ---
 
 ## Environment Variables
 
-Create an environment variable named:
+Create the following environment variable before running the backend:
 
-```
+```text
 GEMINI_KEY=YOUR_API_KEY
 ```
 
@@ -132,17 +152,9 @@ The API key is intentionally not included in this repository.
 
 ## Future Improvements
 
-Some features I'd like to add in the future:
-
-* More reply tone options
-* Support for different AI models
 * Email summarization
+* Custom reply templates
 * Reply history
-* User authentication
-* Deployment with Docker
-
----
-
-## Screenshots
-
-Screenshots and a demo GIF will be added after deployment.
+* Authentication
+* Cloud deployment
+* Support for multiple email providers
