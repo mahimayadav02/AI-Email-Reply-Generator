@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Backup files
+*.zip
+
+# Ignore old practice extension
+hello-world-ext/
+
+# React
+email-writer-react/node_modules/
+email-writer-react/dist/
+
+# Spring Boot
+email-writer-sb/target/
+
+# IntelliJ
+.idea/
+*.iml
