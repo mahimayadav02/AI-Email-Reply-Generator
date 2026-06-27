@@ -6,7 +6,7 @@ This project is an AI-powered email reply generator built using **Spring Boot**,
 
 The idea behind the project is simple: while replying to an email in Gmail, users can click an **AI Reply** button added by a Chrome Extension. The email content is sent to a Spring Boot backend, which communicates with the Gemini API to generate a context-aware reply. The generated response is then inserted directly into the Gmail compose window.
 
-Apart from the Chrome Extension, the project also includes a React frontend that can be used independently to test and generate replies.
+Apart from the Chrome Extension, the project also includes a React frontend that can be used independently to test and generate replies for texts other than email.
 
 ---
 
